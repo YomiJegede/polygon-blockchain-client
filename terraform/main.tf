@@ -1,44 +1,34 @@
 provider "aws" {
-  region = "us-east-1"
+  region = var.aws_region
 }
 
 resource "aws_ecs_cluster" "blockchain" {
   name = "blockchain-cluster"
 }
 
-resource "aws_ecs_task_definition" "blockchain_task" {
-  family                   = "blockchain-task"
-  requires_compatibilities = ["FARGATE"]
-  network_mode             = "awsvpc"
-  cpu                      = "256"
-  memory                   = "512"
-  execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
-  container_definitions = jsonencode([
-    {
-      name      = "blockchain-client"
-      image     = "your-dockerhub-username/polygon-blockchain-client:latest"
-      cpu       = 256
-      memory    = 512
-      essential = true
-      portMappings = [
-        {
-          containerPort = 8080
-          hostPort      = 8080
-        }
-      ]
-    }
-  ])
+module "network" {
+  source = "terraform-aws-modules/vpc/aws"
+  name   = "blockchain-vpc"
+  cidr   = "10.0.0.0/16"
+  
+  azs             = ["us-east-1a", "us-east-1b"]
+  public_subnets  = ["10.0.1.0/24", "10.0.2.0/24"]
 }
 
-resource "aws_ecs_service" "blockchain_service" {
-  name            = "blockchain-service"
-  cluster         = aws_ecs_cluster.blockchain.id
-  task_definition = aws_ecs_task_definition.blockchain_task.arn
-  desired_count   = 1
-  launch_type     = "FARGATE"
-  network_configuration {
-    subnets         = ["subnet-xxxxxxxx"]  
-    security_groups = ["sg-xxxxxxxx"]
-    assign_public_ip = true
+resource "aws_security_group" "ecs_sg" {
+  vpc_id = module.network.vpc_id
+
+  ingress {
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }

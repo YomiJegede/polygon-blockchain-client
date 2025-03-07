@@ -14,7 +14,7 @@ This is a simple blockchain client that interacts with Polygon RPC.
 
 ## Installation
 1. Clone this repository:
-   `git clone https://github.com/yourusername/blockchain-client.git`
+   `git clone git@github.com:YomiJegede/polygon-blockchain-client.git`
 2. Install dependencies:
    `go mod tidy`
 3. Build and run the application:

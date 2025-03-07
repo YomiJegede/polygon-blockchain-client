@@ -1,4 +1,3 @@
-// This file contains logic to interact with the Polygon RPC.
 package client
 
 import (
@@ -7,7 +6,7 @@ import (
 	"errors"
 	"io/ioutil"
 	"net/http"
-	"polygon-blockchain-client/config"
+	"blockchain-client/config"
 )
 
 // JSONRPCRequest represents a standard JSON-RPC request.

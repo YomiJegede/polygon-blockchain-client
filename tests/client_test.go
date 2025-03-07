@@ -1,17 +1,18 @@
 package tests
 
 import (
-	"testing"
 	"net/http"
 	"net/http/httptest"
+	"testing"
+	"polygon-blockchain-client/handlers"
 	"io/ioutil"
-	"polygon-blockchain-client"
 )
 
+// Test fetching the latest block number
 func TestBlockNumberHandler(t *testing.T) {
 	req := httptest.NewRequest("GET", "/blockNumber", nil)
 	w := httptest.NewRecorder()
-	polygon-blockchain-client.blockNumberHandler(w, req)
+	handlers.BlockNumberHandler(w, req)
 
 	resp := w.Result()
 	body, _ := ioutil.ReadAll(resp.Body)
@@ -24,10 +25,11 @@ func TestBlockNumberHandler(t *testing.T) {
 	}
 }
 
+// Test fetching a block by number
 func TestBlockByNumberHandler(t *testing.T) {
 	req := httptest.NewRequest("GET", "/blockByNumber?block=0x134e82a", nil)
 	w := httptest.NewRecorder()
-	polygon-blockchain-client.blockByNumberHandler(w, req)
+	handlers.BlockByNumberHandler(w, req)
 
 	resp := w.Result()
 	body, _ := ioutil.ReadAll(resp.Body)

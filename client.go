@@ -6,7 +6,7 @@ import (
 	"errors"
 	"io/ioutil"
 	"net/http"
-	"blockchain-client/config"
+	"polygon-blockchain-client/config"
 )
 
 // JSONRPCRequest represents a standard JSON-RPC request.

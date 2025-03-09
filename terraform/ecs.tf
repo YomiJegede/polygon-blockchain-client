@@ -8,8 +8,8 @@ resource "aws_ecs_task_definition" "blockchain_task" {
 
   container_definitions = jsonencode([
     {
-      name      = "blockchain-client"
-      image     = "your-dockerhub-username/polygon-blockchain-client:latest"
+      name      = "polygon-blockchain-client"
+      image     = "jyormie/polygon-blockchain-client:latest"
       cpu       = 256
       memory    = 512
       essential = true

@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"blockchain-client/handlers"
+	"polygon-blockchain-client/handlers"
 )
 
 func main() {

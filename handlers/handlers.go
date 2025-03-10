@@ -1,4 +1,4 @@
-// This file provides HTTP handlers for fetching blockchain data.
+// HTTP handlers for fetching blockchain data.
 package handlers
 
 import (

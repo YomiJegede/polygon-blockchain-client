@@ -30,9 +30,9 @@ This is a simple blockchain client that interacts with Polygon RPC.
    `go test ./tests`
 
 6. ## Deploying with Terraform
-  1. Configure AWS credentials
-  2. Initialize Terraform:
-     `cd terraform 
+     `Configure AWS credentials`
+     `Initialize Terraform:
+         `cd terraform`
          `terraform init`
          `terraform plan`
 

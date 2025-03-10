@@ -36,7 +36,7 @@ This is a simple blockchain client that interacts with Polygon RPC.
          `terraform init`
          `terraform plan`
 
-7. Enhancements for Production readiness
+7. ## Enhancements for Production readiness
    1. Monitoting & Logging: Use of a structured logging with Prometheus and Grafana and AWS CloudWatch for better observability and debugging.
    2. Rate-limiting: To prevent abuse and control traffic we can use AWS API Gateway for rate-limiting setting usage plans.
    3. Authentication: Secure your API with API Keys using AWS API Gateway and Amazon Cognito for more complex user management.

@@ -1,5 +1,4 @@
 # polygon-blockchain-client
-# Deployment and Production Considerations
 
 "# Blockchain Client
 

@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	mux := http.NewServeMux() // Use ServeMux for better routing
+	mux := http.NewServeMux() // Use ServeMux for routing
 
 	// Register handlers
 	mux.HandleFunc("/healthz", handlers.HealthCheckHandler)

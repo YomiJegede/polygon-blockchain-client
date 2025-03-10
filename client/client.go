@@ -9,7 +9,7 @@ import (
 	"polygon-blockchain-client/config"
 )
 
-// JSONRPCRequest represents a standard JSON-RPC request.
+// JSONRPCRequest for standard JSON-RPC request.
 type JSONRPCRequest struct {
 	JSONRPC string        `json:"jsonrpc"`
 	Method  string        `json:"method"`
@@ -17,7 +17,7 @@ type JSONRPCRequest struct {
 	ID      int           `json:"id"`
 }
 
-// JSONRPCResponse represents a standard JSON-RPC response.
+// JSONRPCResponse for standard JSON-RPC response.
 type JSONRPCResponse struct {
 	JSONRPC string          `json:"jsonrpc"`
 	ID      int             `json:"id"`

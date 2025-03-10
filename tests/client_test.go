@@ -8,7 +8,7 @@ import (
 	"io/ioutil"
 )
 
-// Test fetching the latest block number
+// Test fetching of the latest block number
 func TestBlockNumberHandler(t *testing.T) {
 	req := httptest.NewRequest("GET", "/blockNumber", nil)
 	w := httptest.NewRecorder()
@@ -25,7 +25,7 @@ func TestBlockNumberHandler(t *testing.T) {
 	}
 }
 
-// Test fetching a block by number
+// Test fetching of block by number
 func TestBlockByNumberHandler(t *testing.T) {
 	req := httptest.NewRequest("GET", "/blockByNumber?block=0x134e82a", nil)
 	w := httptest.NewRecorder()

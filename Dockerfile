@@ -1,4 +1,4 @@
-# using environment variables and multi-stage build for optimization
+
 # Build stage
 FROM golang:1.20 AS builder
 WORKDIR /app

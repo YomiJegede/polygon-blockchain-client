@@ -9,9 +9,14 @@ import (
 )
 
 func main() {
-	http.HandleFunc("/blockNumber", handlers.BlockNumberHandler)
-	http.HandleFunc("/blockByNumber", handlers.BlockByNumberHandler)
+	mux := http.NewServeMux() // Use ServeMux for better routing
 
-	fmt.Println("Server running on port 8080")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	// Register handlers
+	mux.HandleFunc("/healthz", handlers.HealthCheckHandler)
+	mux.HandleFunc("/blockNumber", handlers.BlockNumberHandler)
+	mux.HandleFunc("/blockByNumber", handlers.BlockByNumberHandler)
+
+	port := "8080"
+	fmt.Println("✅ Server running on port", port)
+	log.Fatal(http.ListenAndServe(":"+port, mux)) // Use mux for cleaner routing
 }
